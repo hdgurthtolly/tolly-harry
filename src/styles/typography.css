@@ -79,7 +79,7 @@ h4 {
 
 .text-title-small {
   font-size: 18px;
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-medium);
   line-height: var(--line-height-relaxed);
 }
 

@@ -58,7 +58,7 @@ const StorySelectionPage = ({ onContinue }) => {
               <div className="story-content">
                 <img src={story.image} alt={`Story cover ${story.id}`} className="story-image" />
                 <div className="story-info">
-                  <h3 className="story-summary">{story.summary}</h3>
+                  <h4 className="story-summary">{story.summary}</h4>
                   <Button 
                     variant="primary" 
                     size="large" 

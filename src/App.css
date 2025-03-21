@@ -3,42 +3,42 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  background-color: #E5E6FF;
 }
 
-/* Navigation styling */
-.app-navigation {
-  background-color: white;
-  padding: 15px;
+/* Page content wrapper */
+.page-content {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  flex-direction: column;
+  flex: 1;
+  min-height: 100vh;
+  background-color: #E5E6FF;
 }
 
-.nav-button {
-  background-color: transparent;
-  border: none;
-  padding: 8px 16px;
-  cursor: pointer;
-  font-family: var(--font-primary);
-  font-size: 16px;
-  border-radius: 4px;
-  transition: all 0.2s ease;
+/* Common styles for all page containers */
+.story-selection-container,
+.format-selection-container,
+.customization-container,
+.checkout-container {
+  max-width: 1400px;
+  width: 100%;
+  padding: 60px;
+  margin: 0 auto;
+  background-color: #E5E6FF;
 }
 
-.nav-button:hover {
-  background-color: #f0f0f0;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .story-selection-container,
+  .format-selection-container,
+  .customization-container,
+  .checkout-container {
+    padding: 30px 15px;
+  }
 }
 
-.nav-button.active {
-  background-color: #A8A3EC;
-  color: white;
-  font-weight: 600;
-}
-
+/* App legacy styles - keeping for reference */
 .App-logo {
   height: 40vmin;
   pointer-events: none;

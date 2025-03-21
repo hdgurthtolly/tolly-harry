@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '../../components/common/Button';
 import './CustomizationPage.css';
 
@@ -11,37 +11,80 @@ const formatPrice = (price) => {
 };
 
 const CustomizationPage = ({ onContinue }) => {
-    const handleSelectCustomization = (id) => {
-        console.log(`Selected customization with ID: ${id}`);
+    const [message, setMessage] = useState('willkommen in deinem einzigartigen Tolly-Buch!');
+    const [title, setTitle] = useState('Liebe Thea');
+    
+    const handleMessageChange = (e) => {
+        setMessage(e.target.value);
+    };
+    
+    const handleTitleChange = (e) => {
+        setTitle(e.target.value);
+    };
+
+    const handleSelectCustomization = () => {
+        console.log('Customization selected with message:', message);
         // Navigate to the next page if onContinue prop is provided
         if (onContinue) {
             onContinue();
         }
-    };  
+    };
 
     return (
         <div className="customization-container">
             <div className="customization-header">
                 <div className="preview-tag">Widmung</div>
                 <h1>Add a personal message</h1>
-                <p className="subtitle text-title-small">Write a message to [KID]. We'll print it on the second page of the book.</p>
+                <p className="subtitle text-title-small">Write a message to personalize your book. We'll print it on the second page.</p>
             </div>
 
-            <div className="customization-grid">
-                <div className="customization-card">
-                    <img src={icon1} alt="Customization" className="customization-image" />
-                    <div className="customization-info">
-                        <h3 className="customization-summary">Customize your story with your name and a personal message</h3>
-                        <div className="customization-price">{formatPrice(19.99)}€</div>
-                        <Button 
-                            variant="primary" 
-                            size="large" 
-                            onClick={() => handleSelectCustomization(1)}
-                            iconImg={icon1}
-                        >
-                            Customize
-                        </Button>
+            <div className="customization-content">
+                <div className="input-section">
+                    <div className="form-group">
+                        <label htmlFor="dedication-title">Title</label>
+                        <input 
+                            type="text" 
+                            id="dedication-title" 
+                            value={title} 
+                            onChange={handleTitleChange}
+                            placeholder="Enter title"
+                        />
                     </div>
+                    
+                    <div className="form-group">
+                        <label htmlFor="dedication-message">Your message</label>
+                        <textarea 
+                            id="dedication-message" 
+                            value={message} 
+                            onChange={handleMessageChange}
+                            rows="8"
+                            placeholder="Write your personalized message here..."
+                        />
+                    </div>
+                    
+                </div>
+                
+                <div className="preview-section">
+                    <div className="book-page">
+                        <div className="book-content">
+                            <div className="dedication-text">
+                                <p className="dedication-name">{title},</p>
+                                <p className="dedication-message">
+                                    {message
+                                        .replace(/^Liebe [^,]+,\s*\n+/i, '') // Remove the greeting as we display it separately
+                                        .split('\n')
+                                        .map((line, i) => (
+                                            <span key={i}>
+                                                {line}
+                                                <br />
+                                            </span>
+                                        ))}
+                                </p>
+                            </div>
+                            <div className="dedication-quotes">❝❞</div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>

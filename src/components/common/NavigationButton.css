@@ -1,0 +1,85 @@
+/* Navigation button container */
+.nav-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+/* Button label styling */
+.nav-button-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #8B84F7;
+  transition: all 0.3s ease;
+}
+
+.nav-button-label.active {
+  color: #8B84F7;
+}
+
+.nav-button-label.inactive {
+  color: #BBB;
+}
+
+/* Base navigation button styles */
+.navigation-button {
+  width: 44px;
+  height: 44px; /* Match height of .custom-button */
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 0;
+}
+
+/* Button sizes to match regular buttons */
+.navigation-button.small {
+  width: 36px;
+  height: 36px;
+}
+
+.navigation-button.medium {
+  width: 44px;
+  height: 44px;
+}
+
+.navigation-button.large {
+  width: 44px;
+  height: 44px;
+}
+
+/* Active state */
+.navigation-button.active {
+  background-color: #DEDCFF;
+}
+
+.navigation-button.active .nav-icon {
+  color: #000;
+}
+
+/* Active hover state */
+.navigation-button.active:hover {
+  background-color: #A8A3EC;
+  transform: scale(1.05);
+}
+
+/* Inactive state */
+.navigation-button.inactive {
+  background-color: #E8E7F5;
+  cursor: not-allowed;
+}
+
+.navigation-button.inactive .nav-icon {
+  color: #BBB;
+}
+
+/* Icon styling */
+.nav-icon {
+  transition: all 0.3s ease;
+} 

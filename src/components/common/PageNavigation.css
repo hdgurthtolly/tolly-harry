@@ -1,0 +1,18 @@
+.page-navigation {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: auto;
+  padding-top: 60px;
+  padding-bottom: 80px;
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .page-navigation {
+    padding-bottom: 20px;
+    gap: 20px;
+  }
+} 

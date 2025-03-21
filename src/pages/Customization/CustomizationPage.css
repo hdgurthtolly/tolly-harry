@@ -15,6 +15,7 @@
   text-align: center;
   margin-bottom: 40px;
   position: relative;
+  width: 100%;
 }
 
 /* "Widmung" tag at the top */
@@ -44,70 +45,169 @@
   margin-right: auto;
 }
 
-/* Grid container for customization cards */
-.customization-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 40px;
+/* Content layout with two columns */
+.customization-content {
+  display: flex;
   width: 100%;
-  margin-bottom: 40px;
-  max-width: 600px;
+  gap: 60px;
+  margin-top: 20px;
 }
 
-/* Individual customization card */
-.customization-card {
+/* Left column - Input section */
+.input-section {
+  flex: 1;
   background-color: #CECBFA;
   border-radius: 32px;
-  position: relative;
-  width: 100%;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px;
   display: flex;
   flex-direction: column;
-  overflow: visible;
-  padding: 40px 24px;
+  gap: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.customization-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  background-color: #C3C0F6;
-  z-index: 2;
+/* Form group styling */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
-/* Customization image */
-.customization-image {
-  width: 60%;
-  max-width: 200px;
-  aspect-ratio: 1/1;
-  object-fit: contain;
-  margin: 0 auto 30px;
-  display: block;
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #333;
 }
 
-/* Customization info section */
-.customization-info {
-  padding: 15px;
-  background-color: transparent;
+.form-group input,
+.form-group textarea {
+  padding: 12px 16px;
+  border: 2px solid #B4B0EA;
+  border-radius: 16px;
+  background-color: white;
+  font-size: 16px;
+  font-family: inherit;
+  resize: none;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #7D78D1;
+  outline: none;
+}
+
+/* Price and button container */
+.price-info {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box;
 }
 
-/* Customization summary text */
-.customization-summary {
-  color: #333;
-  font-weight: normal;
-  margin: 0 0 20px 0;
-  text-align: center;
-}
-
-/* Customization price */
+/* Price styling */
 .customization-price {
   font-size: 24px;
   font-weight: bold;
   color: #333;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+}
+
+/* Right column - Preview section */
+.preview-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Main book page preview */
+.book-page {
+  background-color: white;
+  border-radius: 32px;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.book-content {
+  position: relative;
+  padding: 20px;
+}
+
+/* Dedication text styling */
+.dedication-name {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.dedication-message {
+  font-size: 18px;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+/* Quote marks */
+.dedication-quotes {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 60px;
+  color: #CECBFA;
+  opacity: 0.7;
+}
+
+/* Side preview card */
+.preview-side-card {
+  background-color: #FFC1B3;
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.preview-example {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.preview-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-family: cursive;
+}
+
+.preview-text {
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: cursive;
+}
+
+.preview-footer {
+  margin-top: auto;
+  font-size: 12px;
+  text-align: center;
+}
+
+.preview-logo {
+  font-size: 24px;
+  font-family: cursive;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1000px) {
+  .customization-content {
+    flex-direction: column;
+  }
+  
+  .book-page {
+    min-height: 300px;
+  }
 }

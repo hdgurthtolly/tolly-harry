@@ -31,6 +31,7 @@ function App() {
       // The link format is: https://orders.tolly.io/preview-order/TOKEN
       const providedLink = 'https://orders.tolly.io/preview-order/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJoZGd1cnRoQGdtYWlsLmNvbSIsIm9yZGVyIjoiYjMxM2ZmZjctMzU1ZS00OGRmLWJlYjUtYTc5NGRjYzBmYTMwIiwiZXhwIjoxNzQyODE2NDg2fQ.fsfsZcOkG03W9UG6Ecm0RZSj9oES0IkLfd8WRYcubGg';
       
+      
       // Extract the token part (everything after the last slash)
       const parts = providedLink.split('/');
       const testToken = parts[parts.length - 1];
@@ -38,6 +39,13 @@ function App() {
       console.log('Using extracted token:', testToken);
       setMagicToken(testToken);
     }
+    
+    // Set up the API base URL based on environment
+    window.API_BASE_URL = process.env.NODE_ENV === 'development' 
+      ? '/api' // This will be proxied in development
+      : 'https://api.tolly.io'; // Direct URL in production
+      
+    console.log('API base URL set to:', window.API_BASE_URL);
   }, []);
 
   const handleNavigation = (page) => {

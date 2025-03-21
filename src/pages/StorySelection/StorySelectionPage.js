@@ -8,8 +8,8 @@ import cover2 from '../../assets/images/Cover 2.png';
 import cover3 from '../../assets/images/Cover 3.png';
 import bookIcon from '../../assets/icons/Book.png';
 
-// API URLs and constants
-const API_URL = 'https://api.tolly.io';
+// Use the API base URL from window or default to the proxy path
+const API_URL = window.API_BASE_URL || '/api';
 
 // Preview image names
 const STORY_PREVIEW_URLS = [
@@ -36,7 +36,7 @@ const StorySelectionPage = ({ onContinue, magicToken }) => {
       setLoading(true);
       console.log('Fetching story options with magic token:', magicToken);
       
-      // For testing purposes, if no magicToken is provided, use a default value or mock data
+      // For testing purposes, if no magicToken is provided, use mock data
       if (!magicToken) {
         console.log('No magic token provided, using mock data');
         setStoryOptions([
@@ -60,15 +60,16 @@ const StorySelectionPage = ({ onContinue, magicToken }) => {
         return;
       }
       
-      // Fetch data from API
-      console.log(`Making API request to: ${API_URL}/preview-order/${magicToken}`);
-      const response = await fetch(`${API_URL}/orders/order-info/${magicToken}`, {
+      // Construct the URL with the proxy path
+      const orderInfoUrl = `${API_URL}/orders/order-info/${magicToken}`;
+      console.log(`Making API request to: ${orderInfoUrl}`);
+      
+      const response = await fetch(orderInfoUrl, {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        // Don't include credentials for preview endpoints
         credentials: 'omit'
       });
       
@@ -85,13 +86,16 @@ const StorySelectionPage = ({ onContinue, magicToken }) => {
       
       // Extract orderId from the response
       const orderId = data.order_id;
+      console.log('Extracted order ID:', orderId);
       
       // Map the API response to the format expected by the component
       const mappedOptions = data.book_options ? data.book_options.map((option, index) => {
-        // Construct the image URL using the same pattern as the Angular code
+        // Construct the image URL based on the second endpoint
         const imageUrl = orderId
           ? `${API_URL}/orders/get-image-for-order/${orderId}/${STORY_PREVIEW_URLS[index]}`
           : fallbackImages[index % fallbackImages.length];
+        
+        console.log(`Image URL for option ${index + 1}:`, imageUrl);
 
         return {
           id: index + 1,

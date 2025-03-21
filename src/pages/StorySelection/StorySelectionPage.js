@@ -8,8 +8,15 @@ import cover2 from '../../assets/images/Cover 2.png';
 import cover3 from '../../assets/images/Cover 3.png';
 import bookIcon from '../../assets/icons/Book.png';
 
-// When using the proxy in package.json, we can use relative URLs
-const API_URL = '';
+// API URLs and constants
+const API_URL = 'https://api.tolly.io';
+
+// Preview image names
+const STORY_PREVIEW_URLS = [
+  'first_story_option.png',
+  'second_story_option.png',
+  'third_story_option.png'
+];
 
 /**
  * StorySelectionPage - Displays a page for users to select a story
@@ -55,12 +62,14 @@ const StorySelectionPage = ({ onContinue, magicToken }) => {
       
       // Fetch data from API
       console.log(`Making API request to: ${API_URL}/preview-order/${magicToken}`);
-      const response = await fetch(`${API_URL}/preview-order/${magicToken}`, {
+      const response = await fetch(`${API_URL}/orders/order-info/${magicToken}`, {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
-        }
+        },
+        // Don't include credentials for preview endpoints
+        credentials: 'omit'
       });
       
       console.log('API response status:', response.status);
@@ -74,13 +83,23 @@ const StorySelectionPage = ({ onContinue, magicToken }) => {
       const data = await response.json();
       console.log('API response data:', data);
       
+      // Extract orderId from the response
+      const orderId = data.order_id;
+      
       // Map the API response to the format expected by the component
-      const mappedOptions = data.book_options ? data.book_options.map((option, index) => ({
-        id: index + 1,
-        image: option.image_url || fallbackImages[index % fallbackImages.length],
-        summary: option.summary || option.title,
-        title: option.title
-      })) : [];
+      const mappedOptions = data.book_options ? data.book_options.map((option, index) => {
+        // Construct the image URL using the same pattern as the Angular code
+        const imageUrl = orderId
+          ? `${API_URL}/orders/get-image-for-order/${orderId}/${STORY_PREVIEW_URLS[index]}`
+          : fallbackImages[index % fallbackImages.length];
+
+        return {
+          id: index + 1,
+          image: imageUrl,
+          summary: option.summary || option.title,
+          title: option.title
+        };
+      }) : [];
       
       console.log('Mapped options:', mappedOptions);
       

@@ -50,7 +50,10 @@ const StorySelectionPage = ({ onContinue }) => {
       <div className="stories-grid">
         {storyOptions.map(story => (
           <div key={story.id} className="story-wrapper">
-            <div className="story-card">
+            <div 
+              className="story-card" 
+              onClick={() => handleSelectStory(story.id)}
+            >
               <div className="story-number">{story.id}</div>
               <div className="story-content">
                 <img src={story.image} alt={`Story cover ${story.id}`} className="story-image" />
@@ -59,7 +62,6 @@ const StorySelectionPage = ({ onContinue }) => {
                   <Button 
                     variant="primary" 
                     size="large" 
-                    onClick={() => handleSelectStory(story.id)}
                     iconImg={bookIcon}
                   >
                     Auswählen

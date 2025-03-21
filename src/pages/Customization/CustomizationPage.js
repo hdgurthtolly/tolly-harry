@@ -39,6 +39,29 @@ const CustomizationPage = ({ onContinue }) => {
             </div>
 
             <div className="customization-content">
+                <div className="preview-section">
+                    <div className="book-page">
+                        <div className="book-content">
+                            <div className="dedication-quotes dedication-quotes-left">❝</div>
+                            <div className="dedication-text">
+                                <p className="dedication-name">{title},</p>
+                                <p className="dedication-message">
+                                    {message
+                                        .replace(/^Liebe [^,]+,\s*\n+/i, '') // Remove the greeting as we display it separately
+                                        .split('\n')
+                                        .map((line, i) => (
+                                            <span key={i}>
+                                                {line}
+                                                <br />
+                                            </span>
+                                        ))}
+                                </p>
+                            </div>
+                            <div className="dedication-quotes dedication-quotes-right">❞</div>
+                        </div>
+                    </div>
+                </div>
+                
                 <div className="input-section">
                     <div className="form-group">
                         <label htmlFor="dedication-title">Title</label>
@@ -61,30 +84,6 @@ const CustomizationPage = ({ onContinue }) => {
                             placeholder="Write your personalized message here..."
                         />
                     </div>
-                    
-                </div>
-                
-                <div className="preview-section">
-                    <div className="book-page">
-                        <div className="book-content">
-                            <div className="dedication-text">
-                                <p className="dedication-name">{title},</p>
-                                <p className="dedication-message">
-                                    {message
-                                        .replace(/^Liebe [^,]+,\s*\n+/i, '') // Remove the greeting as we display it separately
-                                        .split('\n')
-                                        .map((line, i) => (
-                                            <span key={i}>
-                                                {line}
-                                                <br />
-                                            </span>
-                                        ))}
-                                </p>
-                            </div>
-                            <div className="dedication-quotes">❝❞</div>
-                        </div>
-                    </div>
-                    
                 </div>
             </div>
         </div>

@@ -58,15 +58,17 @@ const FormatSelectionPage = ({ onContinue }) => {
                 {formatOptions.map(format => (
                     <div key={format.id} className="format-selection-wrapper">
                         {format.isPopular && <div className="popular-tag">Am beliebtesten</div>}
-                        <div className="format-selection-card">
+                        <div 
+                            className="format-selection-card"
+                            onClick={() => handleSelectFormat(format.id)} 
+                        >
                             <img src={format.image} alt={`Format ${format.id}`} className="format-selection-image" />
                             <div className="format-selection-info">
                                 <h3 className="format-selection-summary">{format.summary}</h3>
                                 <div className="format-selection-price">{format.price}€</div>
                                 <Button 
                                     variant="primary" 
-                                    size="large" 
-                                    onClick={() => handleSelectFormat(format.id)}
+                                    size="large"
                                     iconImg={icon4} // Using Book.png as the icon for all buttons
                                 >
                                     {format.cta}

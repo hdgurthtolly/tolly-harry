@@ -5,9 +5,13 @@ import FormatSelectionPage from './pages/FormatSelection/FormatSelectionPage';
 import CustomizationPage from './pages/Customization/CustomizationPage';
 import CheckoutPage from './pages/Checkout/CheckoutPage';
 import PageNavigation from './components/common/PageNavigation';
+import useScrollToTop from './hooks/useScrollToTop';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('story');
+  
+  // Use the custom hook to scroll to top when page changes
+  useScrollToTop(currentPage);
 
   const handleNavigation = (page) => {
     setCurrentPage(page);

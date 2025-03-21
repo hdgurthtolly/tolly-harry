@@ -1,0 +1,158 @@
+/* Main container for the story selection page */
+.story-selection-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px;
+  background-color: #e5e6ff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Styles for the header section */
+.story-selection-header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+/* "Vorschau" tag at the top */
+.preview-tag {
+  display: inline-block;
+  background-color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* Main heading "Geschichtenauswahl" */
+.story-selection-header h1 {
+  font-size: 48px;
+  margin: 10px 0;
+  color: #000;
+}
+
+/* Subtitle text */
+.subtitle {
+  color: #000000;
+  opacity: 0.64;
+  margin-top: 10px;
+}
+
+/* Grid container for story cards */
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 80px;
+  width: 100%;
+  margin-bottom: 40px;
+  max-width: 1200px;
+}
+
+/* Wrapper for card and its description */
+.story-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Individual story card */
+.story-card {
+  background-color: #CECBFA;
+  border-radius: 32px;
+  position: relative;
+  width: 100%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  padding: 40px 24px; /* Restored padding around the content */
+}
+
+.story-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background-color: #C3C0F6;
+  z-index: 2; /* Ensure hovered card appears above others */
+}
+
+/* Number badge on each card */
+.story-number {
+  position: absolute;
+  top: -15px;  /* half of the height to make it stick out */
+  left: 50%;
+  transform: translateX(-50%);  /* center it horizontally */
+  width: 30px;
+  height: 30px;
+  background-color: #A8A3EC;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  z-index: 1;
+}
+
+/* Container for story content */
+.story-content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+/* Story image */
+.story-image {
+  width: 100%;
+  aspect-ratio: 1/1; /* Keep image square */
+  object-fit: cover;
+  border-radius: 24px; /* Adjusted to look better with padding */
+  display: block; /* Ensure proper layout */
+}
+
+/* Information section at the bottom of card */
+.story-info {
+  padding: 15px 15px 20px; /* Added more padding at bottom */
+  background-color: #C3C0F6;
+  border-radius: 0 0 32px 32px;
+  transition: max-height 0.5s ease, opacity 0.3s ease, padding 0.3s ease;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box; /* Ensure padding is included in height calculations */
+  margin: 0 -24px -40px -24px; /* Offset the card padding to keep the info section aligned with edges */
+  width: calc(100% + 48px); /* Adjust width to account for negative margins */
+}
+
+/* Show the info section on hover */
+.story-card:hover .story-info {
+  max-height: 300px; /* Further increased to ensure there's enough room */
+  opacity: 1;
+}
+
+/* Story summary text */
+.story-summary {
+  color: white;
+  font-weight: normal;
+  margin: 0 0 32px 0; /* 0 top, 0 right, 32px bottom, 0 left */
+  text-align: center;
+}
+
+/* Action container for navigation buttons */
+.action-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 20px;
+}

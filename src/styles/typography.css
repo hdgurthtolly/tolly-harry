@@ -1,0 +1,135 @@
+/* Typography System
+   - Consistent text styles across the application 
+   - Responsive sizes for mobile and desktop
+   - Uses Lexend font family
+*/
+
+/* Text style variables */
+:root {
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  
+  /* Text colors */
+  --text-color-primary: #000000;
+  
+  /* Line heights */
+  --line-height-tight: 110%;
+  --line-height-standard: 120%; 
+  --line-height-relaxed: 150%;
+}
+
+/* Base styles for all text elements */
+h1, h2, h3, h4, h5, h6, p {
+  font-family: var(--font-primary);
+  color: var(--text-color-primary);
+  margin-top: 0;
+}
+
+/* Default paragraph style */
+p {
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: 1em;
+}
+
+/* Mobile typography (default) */
+h1 {
+  font-size: 28px;
+  font-weight: var(--font-weight-bold);
+  line-height: 130%;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: 0.5em;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: 0.5em;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: 0.5em;
+}
+
+/* Utility classes for text styles */
+.text-title-large {
+  font-size: 28px;
+  font-weight: var(--font-weight-bold);
+  line-height: 130%;
+}
+
+.text-title-medium {
+  font-size: 24px;
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-relaxed);
+}
+
+.text-title-small {
+  font-size: 18px;
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-relaxed);
+}
+
+.text-subtitle {
+  font-size: 16px;
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-relaxed);
+}
+
+.text-body {
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Desktop typography (media query) */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 64px;
+    line-height: var(--line-height-tight);
+  }
+  
+  h2 {
+    font-size: 40px;
+    line-height: var(--line-height-standard);
+  }
+  
+  h3 {
+    font-size: 24px;
+  }
+  
+  h4 {
+    font-size: 18px;
+  }
+  
+  .text-title-large {
+    font-size: 64px;
+    line-height: var(--line-height-tight);
+  }
+  
+  .text-title-medium {
+    font-size: 40px;
+    line-height: var(--line-height-standard);
+  }
+  
+  .text-title-small {
+    font-size: 24px;
+  }
+  
+  .text-subtitle {
+    font-size: 18px;
+  }
+} 

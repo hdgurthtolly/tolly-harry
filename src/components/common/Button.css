@@ -1,0 +1,113 @@
+/* Base button styles */
+.custom-button {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  border: none;
+  border-radius: 100px; /* Fully rounded corners */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start; /* Align content to start for better text positioning */
+  text-align: center;
+  transition: all 0.3s ease;
+  padding: 0 32px;
+  height: 44px; /* Use fixed height instead of min-height */
+  gap: 12px;
+  font-size: 1.125rem;
+  white-space: nowrap; /* Prevent text wrapping */
+  width: fit-content; /* Size exactly to content */
+  max-width: 100%; /* Prevent overflow */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Button variants */
+.custom-button.primary {
+  background-color: #000000;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  padding-right: 8px; /* Less padding on right to bring icon closer to edge */
+}
+
+.custom-button.primary:hover {
+  /* transform: translateY(-2px); */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Icon in button */
+.button-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  color: black;
+  margin-left: 0;
+  margin-right: -22px; /* Pull the icon slightly closer to the edge */
+  transition: all 0.3s ease;
+}
+
+.custom-button.primary .button-icon {
+  background-color: white;
+  color: black;
+}
+
+.custom-button.primary:hover .button-icon {
+  transform: rotate(45deg);
+}
+
+/* Secondary button */
+.custom-button.secondary {
+  background-color: #CECBFA;
+  color: #333;
+}
+
+.custom-button.secondary:hover {
+  background-color: #C3C0F6;
+}
+
+.custom-button.secondary:hover .button-icon {
+    transform: rotate(45deg);
+  }
+
+/* Outline button */
+.custom-button.outline {
+  background-color: transparent;
+  color: #000;
+  /* border: 2px solid #000; */
+}
+
+.custom-button.outline .button-icon {
+    background-color: transparent;
+  }
+
+.custom-button.outline:hover .button-icon {
+    transform: rotate(45deg);
+    background-color: transparent;
+  }
+
+/* Button sizes */
+.custom-button.small {
+  padding: 2px 24px;
+  font-size: 0.875rem;
+  height: 36px;
+}
+
+.custom-button.medium {
+  padding: 2px 24px;
+  font-size: 1rem;
+  height: 44px;
+}
+
+.custom-button.large {
+  padding: 2px 24px;
+  font-size: 1.125rem;
+  height: 44px;
+}
+
+/* Disabled state */
+.custom-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+} 

@@ -46,6 +46,15 @@
   margin-left: 0;
   margin-right: -22px; /* Pull the icon slightly closer to the edge */
   transition: all 0.3s ease;
+  overflow: hidden; /* Ensure image stays within the circle */
+}
+
+/* Style for the image icon within the button */
+.button-icon-img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  display: block; /* Removes any extra spacing */
 }
 
 .custom-button.primary .button-icon {

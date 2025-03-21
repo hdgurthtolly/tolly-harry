@@ -1,0 +1,113 @@
+/* Main container for the customization page */
+.customization-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px;
+  background-color: #e5e6ff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Styles for the header section */
+.customization-header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+/* "Widmung" tag at the top */
+.preview-tag {
+  display: inline-block;
+  background-color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* Main heading */
+.customization-header h1 {
+  font-size: 48px;
+  margin: 10px 0;
+  color: #000;
+}
+
+/* Subtitle text */
+.subtitle {
+  color: #000000;
+  opacity: 0.64;
+  margin-top: 10px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Grid container for customization cards */
+.customization-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  width: 100%;
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+/* Individual customization card */
+.customization-card {
+  background-color: #CECBFA;
+  border-radius: 32px;
+  position: relative;
+  width: 100%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  padding: 40px 24px;
+}
+
+.customization-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background-color: #C3C0F6;
+  z-index: 2;
+}
+
+/* Customization image */
+.customization-image {
+  width: 60%;
+  max-width: 200px;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  margin: 0 auto 30px;
+  display: block;
+}
+
+/* Customization info section */
+.customization-info {
+  padding: 15px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Customization summary text */
+.customization-summary {
+  color: #333;
+  font-weight: normal;
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+
+/* Customization price */
+.customization-price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30px;
+}

@@ -1,6 +1,42 @@
 .App {
   width: 100%;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navigation styling */
+.app-navigation {
+  background-color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-button {
+  background-color: transparent;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: var(--font-primary);
+  font-size: 16px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.nav-button:hover {
+  background-color: #f0f0f0;
+}
+
+.nav-button.active {
+  background-color: #A8A3EC;
+  color: white;
+  font-weight: 600;
 }
 
 .App-logo {

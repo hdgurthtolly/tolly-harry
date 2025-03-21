@@ -1,42 +1,50 @@
 import React from 'react';
 import Button from '../../components/common/Button';
-import LinkIcon from '../../components/common/icons/LinkIcon';
 import './StorySelectionPage.css';
+
+// Import local images
+import cover1 from '../../assets/images/Cover 1.png';
+import cover2 from '../../assets/images/Cover 2.png';
+import cover3 from '../../assets/images/Cover 3.png';
+import bookIcon from '../../assets/icons/Book.png';
 
 /**
  * StorySelectionPage - Displays a page for users to select a story
  */
-const StorySelectionPage = () => {
-  // Mock data for story options
+const StorySelectionPage = ({ onContinue }) => {
+  // Mock data for story options with local images
   const storyOptions = [
     {
       id: 1,
-      image: 'https://images.unsplash.com/photo-1517483000871-1dbf64a6e1c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-      summary: 'Eine Geschichte von Marco, für EmmaEine Geschichte von Marco, für EmmaEine Geschichte von Marco, für Emma'
+      image: cover1,
+      summary: 'Eine Geschichte von Marco, für Emma'
     },
     {
       id: 2,
-      image: 'https://images.unsplash.com/photo-1503919005314-30d93d07c272?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      image: cover2,
       summary: 'Eine Geschichte von Marco, für Harry'
     },
     {
       id: 3,
-      image: 'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      image: cover3,
       summary: 'Eine Geschichte von Marco, für Emma'
     }
   ];
 
   const handleSelectStory = (storyId) => {
     console.log(`Selected story with ID: ${storyId}`);
-    // Add navigation or state management logic here
+    // Navigate to the next page if onContinue prop is provided
+    if (onContinue) {
+      onContinue();
+    }
   };
 
   return (
     <div className="story-selection-container">
       <div className="story-selection-header">
-        <div className="preview-tag text-subtitle">Vorschau</div>
+        <div className="preview-tag">Vorschau</div>
         <h1>Geschichtenauswahl</h1>
-        <p className="subtitle text-subtitle">Wähle eine Geschichte für die Bestellung aus</p>
+        <p className="subtitle text-title-small">Wähle eine Geschichte für die Bestellung aus</p>
       </div>
       
       <div className="stories-grid">
@@ -45,14 +53,14 @@ const StorySelectionPage = () => {
             <div className="story-card">
               <div className="story-number">{story.id}</div>
               <div className="story-content">
-                <img src={story.image} alt={story.title} className="story-image" />
+                <img src={story.image} alt={`Story cover ${story.id}`} className="story-image" />
                 <div className="story-info">
-                  <h4 className="story-summary">{story.summary}</h4>
+                  <h3 className="story-summary">{story.summary}</h3>
                   <Button 
                     variant="primary" 
                     size="large" 
                     onClick={() => handleSelectStory(story.id)}
-                    icon={<LinkIcon />}
+                    iconImg={bookIcon}
                   >
                     Auswählen
                   </Button>
